@@ -63,7 +63,7 @@
 
 	$(function() {
 		// After refresh, MSIE7-8 restores the checked state of checkboxes on DOM ready without triggering change events,
-		// hence we do it here. This also takes care of inputs with the [checked] attribute.
+		// hence we do it here.
 		patchNonPatchedInputs();
 
 		// Okay, this is far from ideal, I'd very much prefer an evented or delegated way to do this but it is IMPOSSIBRU.
