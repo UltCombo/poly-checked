@@ -8,7 +8,7 @@ Miraculous `:checked` pseudo-class polyfill.
 Include jQuery 1.x (compatible with old IE) >= 1.7, then the poly-checked script inside an IE conditional comment:
 
 ```html
-<script src="://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <!--[if lte IE 8]>
 <script src="path/to/poly-checked.min.js"></script>
 <![endif]-->
