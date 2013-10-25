@@ -16,11 +16,12 @@ Include jQuery 1.x (compatible with old IE) >= 1.7, then the poly-checked script
 
 Make sure to include all stylesheets before the script and that's all!
 
+See [**live demo**](http://jsbin.com/agAPaka/1).
 
 ## Features
 
 - Transparent to the developer, no need to add ugly polyfill classes to your CSS.
-- Works with dynamically added checkbox/radio elements.
+- Works with dynamically created checkbox/radio elements.
 - Full interoperability with JavaScript. Like the real `:checked` pseudo-class, changing an element's `checked` state will automatically update its style.
 - Keeps the same selector specifity as your original selectors.
 - Bonus: extra patch for `:checked` to work with sibling selectors. Very useful for customized CSS checkboxes/radios.
