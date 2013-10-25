@@ -1,0 +1,9 @@
+.external input + span {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: red;
+}
+.external input:checked + span {
+	background: green;
+}

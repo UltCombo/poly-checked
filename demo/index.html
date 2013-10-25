@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>checked p(r)olyfill test page</title>
+	<link rel="stylesheet" href="style.css">
+<style>
+.inline input + span {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: red;
+}
+.inline input:checked + span {
+	background: green;
+}
+
+</style>
+</head>
+<body>
+
+<p>Using <code>&lt;style&gt;</code>:</p>
+<label class="inline">
+	<input type="checkbox">
+	<span></span>
+</label>
+
+<p>Using <code>&lt;link rel="stylesheet"&gt;</code>:</p>
+<label class="external">
+	<input type="checkbox">
+	<span></span>
+</label>
+
+<p>Toggling checkbox's checked state using JS:</p>
+<button id="jstogglebutton">Toggle</button>
+<label class="external">
+	<input id="jstogglebox" type="checkbox">
+	<span></span>
+</label>
+
+
+<p>Dynamically added elements (long polling, may cause some FOUC):</p>
+<button class="jsclonebutton">.clone()</button>
+<label class="external">
+	<input type="checkbox">
+	<span></span>
+</label>
+
+<p>Dynamically added elements (cloning with data and events):</p>
+<button class="jsclonebutton" data-withevents="1">.clone(true)</button>
+<label class="external">
+	<input type="checkbox">
+	<span></span>
+</label>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!--[if lte IE 8]>
+<script src="../min/poly-checked.min.js"></script>
+<![endif]-->
+<script>
+$('#jstogglebutton').click(function() {
+	$('#jstogglebox')[0].checked ^= 1;
+});
+
+$('.jsclonebutton').click(function() {
+	$(this).next().clone( !!$(this).data('withevents') ).insertAfter(this);
+});
+
+</script>
+</body>
+</html>
