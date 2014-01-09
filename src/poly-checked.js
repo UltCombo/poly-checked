@@ -11,7 +11,7 @@
 	function patchStylesheet(elem, text) {
 		// A global replace here is a bit hackish, but works for the great majority of use cases.
 		// Issue: may have unintended effects on CSS strings (URLs, content property value) containing the ":checked" substring.
-		// Workaround: Use an escape sequence: "\00003Achecked" and "\3A checked" will both be print ":checked"
+		// Workaround: Use an escape sequence: "\00003Achecked" and "\3A checked" will both print ":checked"
 		//(U+0020 space characters immediately following a hexadecimal escape sequence are automatically consumed by the escape sequence)
 		elem.styleSheet.cssText = text.replace(/:checked/g, '.' + CHECKED_CLASS);
 	}
@@ -52,7 +52,7 @@
 	}
 
 	function patchNonPatchedInputs() {
-		// As this will be used for long polling, using as much native JS as possible should provide better performance.
+		// As this will be used for polling, using as much native JS as possible should provide better performance.
 		for (var i = 0; i < inputsLiveNodeList.length; i++) {
 			var input = inputsLiveNodeList[i];
 			if ((input.type === 'checkbox' || input.type === 'radio') && !$.data(input, PATCHED_DATA_PROP)) {
@@ -67,7 +67,7 @@
 		patchNonPatchedInputs();
 
 		// Okay, this is far from ideal, I'd very much prefer an evented or delegated way to do this but it is IMPOSSIBRU.
-		// - IE<9 do not support DOM Mutation Observers (which would also have terrible performance anyway);
+		// - IE<9 does not support Mutation Events (which would also have terrible performance anyway);
 		// - NodeLists don't have any event or method to handle newly added elements (why is it even a live NodeList?);
 		setInterval(patchNonPatchedInputs, 200);
 	});
